@@ -10,7 +10,7 @@ export class PrismaUsersRepository implements UsersRepository {
       },
     });
 
-    return user
+    return user;
   }
 
   async create(data: Prisma.UserCreateInput) {
@@ -18,7 +18,7 @@ export class PrismaUsersRepository implements UsersRepository {
       data,
     });
 
-    return user
+    return user;
   }
 
   async findByEmail(email: string) {
@@ -28,6 +28,6 @@ export class PrismaUsersRepository implements UsersRepository {
       },
     });
 
-    return user
+    return user;
   }
 }

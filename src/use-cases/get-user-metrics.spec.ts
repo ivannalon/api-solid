@@ -13,11 +13,11 @@ describe("Get User Metrics Use Case", () => {
 
   it("should be able to get check-ins count from metrics", async () => {
     for (let index = 1; index <= 22; index++) {
-        await inMemoryCheckInsRepository.create({
-          gym_id: `gym-${index}`,
-          user_id: `user-01`,
-        });
-      }
+      await inMemoryCheckInsRepository.create({
+        gym_id: `gym-${index}`,
+        user_id: `user-01`,
+      });
+    }
 
     const { checkInsCount } = await sut.execute({
       userId: "user-01",

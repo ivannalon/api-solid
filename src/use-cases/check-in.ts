@@ -27,20 +27,23 @@ export class CheckInUseCase {
     userId,
     gymId,
     userLatitude,
-    userLongitude
+    userLongitude,
   }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
-    const gym = await this.gymsRepository.findById(gymId)
+    const gym = await this.gymsRepository.findById(gymId);
 
     if (!gym) {
-      throw new ResourceNotFoundError()
+      throw new ResourceNotFoundError();
     }
 
-    const distance = getDistanceBetweenCoordinates({latitude: userLatitude, longitude: userLongitude},{latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber()})
+    const distance = getDistanceBetweenCoordinates(
+      { latitude: userLatitude, longitude: userLongitude },
+      { latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber() }
+    );
 
-    const MAX_DISTANCE_IN_KILOMETERS = 0.1
+    const MAX_DISTANCE_IN_KILOMETERS = 0.1;
 
-    if(distance > MAX_DISTANCE_IN_KILOMETERS) {
-      throw new MaxDistanceError()
+    if (distance > MAX_DISTANCE_IN_KILOMETERS) {
+      throw new MaxDistanceError();
     }
 
     // calculate distance between user and gym

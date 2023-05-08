@@ -3,7 +3,7 @@ import { CheckInsRepository } from "@/repositories/check-ins-repository";
 
 interface FetchUserCheckInsHistoryUseCaseRequest {
   userId: string;
-  page: number
+  page: number;
 }
 
 interface FetchUserCheckInsHistoryUseCaseResponse {
@@ -11,17 +11,17 @@ interface FetchUserCheckInsHistoryUseCaseResponse {
 }
 
 export class FetchUserCheckInsHistoryUseCase {
-  constructor(
-    private checkInsRepository: CheckInsRepository,
-  ) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     userId,
-    page
+    page,
   }: FetchUserCheckInsHistoryUseCaseRequest): Promise<FetchUserCheckInsHistoryUseCaseResponse> {
-    const checkIns = await this.checkInsRepository.findManyByUserId(userId, page)
+    const checkIns = await this.checkInsRepository.findManyByUserId(
+      userId,
+      page
+    );
 
-    
     return { checkIns };
   }
 }

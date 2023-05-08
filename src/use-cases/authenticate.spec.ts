@@ -4,8 +4,8 @@ import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-user
 import { AuthenticateUseCase } from "./authenticate";
 import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 
-let inMemoryUsersRepository: InMemoryUsersRepository
-let sut: AuthenticateUseCase
+let inMemoryUsersRepository: InMemoryUsersRepository;
+let sut: AuthenticateUseCase;
 
 describe("Authenticate Use Case", () => {
   beforeEach(() => {

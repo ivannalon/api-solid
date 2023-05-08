@@ -42,10 +42,13 @@ export class InMemoryGymsRepository implements GymsRepository {
     return this.gyms.filter((gym) => {
       const distance = getDistanceBetweenCoordinates(
         { latitude: params.latitude, longitude: params.longitude },
-        { latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber()}
+        {
+          latitude: gym.latitude.toNumber(),
+          longitude: gym.longitude.toNumber(),
+        }
       );
 
-      return distance < 10
+      return distance < 10;
     });
   }
 }

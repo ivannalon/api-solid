@@ -12,11 +12,11 @@ describe("Create Gym Use Case", () => {
   });
   it("should be able to create gym", async () => {
     const { gym } = await sut.execute({
-        title: 'Nodejs Gym',
-        description: null,
-        phone: null,
-        latitude: -19.5277951,
-        longitude: -42.6194421
+      title: "Nodejs Gym",
+      description: null,
+      phone: null,
+      latitude: -19.5277951,
+      longitude: -42.6194421,
     });
 
     expect(gym.id).toEqual(expect.any(String));

@@ -20,7 +20,7 @@ describe("Check-in Use Case", () => {
     );
 
     await inMemoryGymsRepository.create({
-      id: 'gym-01',
+      id: "gym-01",
       title: "Nodejs Gym",
       description: null,
       phone: null,
@@ -90,7 +90,7 @@ describe("Check-in Use Case", () => {
 
   it("should not be able to check-in on distant gym", async () => {
     await inMemoryGymsRepository.create({
-      id: 'gym-02',
+      id: "gym-02",
       title: "Nodejs Gym",
       description: null,
       phone: null,
